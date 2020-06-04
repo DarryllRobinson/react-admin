@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import * as React from "react";
+import { Admin, Resource, fetchUtils, ListGuesser } from 'react-admin';
+import simpleRestProvider from 'ra-data-simple-rest';
+//import jsonServerProvider from 'ra-data-json-server';
+//import { UserList } from './users';
+//import { PostList, PostEdit, PostCreate } from './posts';
+//import PostIcon from '@material-ui/icons/Book';
+import UserIcon from '@material-ui/icons/Group';
+import { VetCreate, VetList } from './Components/vets';
+import Dashboard from './Components/Dashboard';
+import authProvider from './authProvider';
+import dataProvider from './DataProvider';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+//const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com');
+
+/*const fetchJson = (url, options = {}) => {
+    if (!options.headers) {
+        options.headers = new Headers({ Accept: 'application/json' });
+        console.log('options.headers: ', options.headers);
+    }
+    // add your own headers here
+    options.headers.set('X-Custom-Header', 'foobar');
+    return fetchUtils.fetchJson(url, options);
 }
+const dataProvider = simpleRestProvider('http://localhost:8081', fetchJson);*/
+
+const App = () => (
+  <Admin dashboard={Dashboard}
+    authProvider={authProvider}
+    dataProvider={dataProvider}
+  >
+    {/*<Resource name="posts" list={PostList} edit={PostEdit} create={PostCreate} icon={PostIcon} />
+    <Resource name="users" list={ListGuesser} icon={UserIcon} />*/}
+    {/*<Resource name="vets" list={ListGuesser} />*/}
+      <Resource name="vets" create={VetCreate} list={VetList} />
+  </Admin>
+);
 
 export default App;
