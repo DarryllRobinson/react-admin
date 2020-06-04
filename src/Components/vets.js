@@ -1,14 +1,14 @@
 import * as React from 'react';
-import { useMediaQuery } from '@material-ui/core';
+//import { useMediaQuery } from '@material-ui/core';
 import { Create, FormTab, SelectInput, TabbedForm, TextInput,
   required, minLength, maxLength, minValue, maxValue, number, regex, email, choices,
-  Datagrid, DateField, List, ReferenceField,  TextField,
+  Datagrid, List, ReferenceField,  TextField,
   SaveButton, Toolbar } from 'react-admin';
-import { withStyles } from '@material-ui/core';
+//import { withStyles } from '@material-ui/core';
 
-const styles = {
+/*const styles = {
     inlineBlock: { display: 'inline-flex', marginRight: '1rem' },
-};
+};*/
 
 const Aside = () => (
     <div style={{ width: 200, margin: '1em' }}>
@@ -77,9 +77,10 @@ export const VetCreate = (props) => (
 export const VetList = (props) => (
   <List {...props}>
     <Datagrid rowClick="edit">
-      <ReferenceField label="Vet Ref No." source="vets" reference="vets">
+      <ReferenceField label="Vet Ref" source="id" reference="vets">
         <TextField source="VettingRef" />
       </ReferenceField>
+      <TextField label="Vet Ref No." source="VettingRef" />
       <TextField label="First Name" source="FirstName" />
       <TextField label="Surname" source="Surname" />
       <TextField label="RSA ID Number" source="IDNumber" />

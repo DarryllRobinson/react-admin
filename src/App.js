@@ -1,11 +1,11 @@
 import * as React from "react";
-import { Admin, Resource, fetchUtils, ListGuesser } from 'react-admin';
-import simpleRestProvider from 'ra-data-simple-rest';
+import { Admin, Resource } from 'react-admin';
+//import simpleRestProvider from 'ra-data-simple-rest';
 //import jsonServerProvider from 'ra-data-json-server';
 //import { UserList } from './users';
 //import { PostList, PostEdit, PostCreate } from './posts';
 //import PostIcon from '@material-ui/icons/Book';
-import UserIcon from '@material-ui/icons/Group';
+//import UserIcon from '@material-ui/icons/Group';
 import { VetCreate, VetList } from './Components/vets';
 import Dashboard from './Components/Dashboard';
 import authProvider from './authProvider';
@@ -32,7 +32,7 @@ const App = () => (
     {/*<Resource name="posts" list={PostList} edit={PostEdit} create={PostCreate} icon={PostIcon} />
     <Resource name="users" list={ListGuesser} icon={UserIcon} />*/}
     {/*<Resource name="vets" list={ListGuesser} />*/}
-      <Resource name="vets" create={VetCreate} list={VetList} />
+    <Resource name="vets" create={VetCreate} list={VetList} />
   </Admin>
 );
 

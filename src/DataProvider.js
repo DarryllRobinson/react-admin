@@ -23,6 +23,7 @@ const httpClient = (url, options = {}) => {
 
 export default {
   getList: (resource, params) => {
+    console.log('params: ', params);
       const { page, perPage } = params.pagination;
       const { field, order } = params.sort;
       const query = {
